@@ -39,4 +39,17 @@
     return [parts objectAtIndex:1];
 }
 
+- (NSDictionary *)URLParams {
+    NSMutableDictionary *paramsDict = [NSMutableDictionary dictionary];
+    NSArray *urlComponents = [[self URLQueryString] componentsSeparatedByString:@"&"];
+    for (NSString *keyValuePair in urlComponents)
+    {
+        NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
+        NSString *key = [pairComponents objectAtIndex:0];
+        NSString *value = [pairComponents objectAtIndex:1];
+        [paramsDict setObject:value forKey:key];
+    }
+    return paramsDict;
+}
+
 @end
