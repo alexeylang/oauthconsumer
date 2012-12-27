@@ -34,4 +34,9 @@
     return [parts objectAtIndex:0];
 }
 
+- (NSString *)URLQueryString {
+    NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
+    return [parts objectAtIndex:1];
+}
+
 @end
