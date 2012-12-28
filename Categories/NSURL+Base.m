@@ -45,9 +45,12 @@
     for (NSString *keyValuePair in urlComponents)
     {
         NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
-        NSString *key = [pairComponents objectAtIndex:0];
-        NSString *value = [pairComponents objectAtIndex:1];
-        [paramsDict setObject:value forKey:key];
+        if ( [pairComponents count] == 2 )
+        {
+            NSString *key = [pairComponents objectAtIndex:0];
+            NSString *value = [pairComponents objectAtIndex:1];
+            [paramsDict setObject:value forKey:key];
+        }
     }
     return paramsDict;
 }
