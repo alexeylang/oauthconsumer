@@ -87,4 +87,8 @@
 	connection = [[NSURLConnection alloc] initWithRequest:aRequest delegate:self];
 }
 
+- (void)resetDelegate {
+    delegate = nil;
+}
+
 @end
