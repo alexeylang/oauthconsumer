@@ -31,12 +31,16 @@
 
 - (NSString *)URLStringWithoutQuery {
     NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
-    return [parts objectAtIndex:0];
+    return [parts firstObject];
 }
 
 - (NSString *)URLQueryString {
     NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
-    return [parts objectAtIndex:1];
+    if ( [parts count] > 1 )
+    {
+        return [parts objectAtIndex:1];
+    }
+    return nil;
 }
 
 - (NSDictionary *)URLParams {
